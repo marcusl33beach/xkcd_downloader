@@ -21,6 +21,7 @@ class Xkdc_downloader
         end
     end
     # Some cleanup
+    # Maybe a loop here
     File.delete('a899e84.jpg')
     File.delete('terrible_small_logo.png')
   end
