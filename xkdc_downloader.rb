@@ -4,8 +4,8 @@ require 'open-uri'
 class Xkdc_downloader
   def self.delete_files()
     system('rm *.png')
-		system('rm *.jpg')
-		system('rm *.pdf')
+    system('rm *.jpg')
+    system('rm *.pdf')
   end
 
   def self.download_png (url)
