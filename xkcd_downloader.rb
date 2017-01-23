@@ -3,7 +3,7 @@ require 'nokogiri'
 require 'open-uri'
 
 # Delete old images
-class xkcd_downloader
+class Xkcd
   def self.delete_files()
     # Maybe loop here over file names.
     system('rm *.png')
@@ -16,8 +16,8 @@ class xkcd_downloader
     url = url
     doc = Nokogiri::HTML(open(url))
     doc.traverse do |el|
-        [el[:src], el[:href]].grep(/\.(gif|jpg|png|pdf)$/i).map{|l| URI.join(url, l).to_s}.each do |link|
-            File.open(File.basename(link),'wb'){|f| f << open(link,'rb').read}
+      [el[:src], el[:href]].grep(/\.(gif|jpg|png|pdf)$/i).map{ |l| URI.join(url, l).to_s }.each do |link|
+          File.open(File.basename(link),'wb'){ |f| f << open(link,'rb').read }
         end
     end
     # Some cleanup
@@ -28,8 +28,8 @@ class xkcd_downloader
 end
 
 # Run run run
-xkcd_downloader.delete_files
-xkcd_downloader.download_png('http://c.xkcd.com/random/comic/')
+Xkcd.delete_files
+Xkcd.download_png('http://c.xkcd.com/random/comic/')
 
 # Open the file wirh imgcat
 system('imgcat *.png')
