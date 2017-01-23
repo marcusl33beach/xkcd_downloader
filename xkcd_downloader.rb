@@ -3,7 +3,7 @@ require 'nokogiri'
 require 'open-uri'
 
 # Delete old images
-class Xkdc_downloader
+class xkcd_downloader
   def self.delete_files()
     # Maybe loop here over file names.
     system('rm *.png')
@@ -28,8 +28,8 @@ class Xkdc_downloader
 end
 
 # Run run run
-Xkdc_downloader.delete_files
-Xkdc_downloader.download_png('http://c.xkcd.com/random/comic/')
+xkcd_downloader.delete_files
+xkcd_downloader.download_png('http://c.xkcd.com/random/comic/')
 
 # Open the file wirh imgcat
 system('imgcat *.png')

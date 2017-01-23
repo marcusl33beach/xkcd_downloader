@@ -1,5 +1,5 @@
-# xkdc_downloader
-Small scrip to download xkdc.com and display on terminal.
+# xkcd_downloader
+Small scrip to download xkcd.com and display on terminal.
 
 
 ### Requirements
